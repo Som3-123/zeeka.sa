@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=768, initial-scale=0.5, minimum-scale=0.4, maximum-scale=2.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>زيكا | zeeka — برّد أعصابك</title>
 <meta name="description" content="كافيه زيكا — 26 فرع بمكة والطائف، مفتوح 24 ساعة. سلاش، مشروبات مثلّجة، بودينج وفرنش توست.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -368,6 +368,82 @@ h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.3}
 }
 .nd-star{width:110px !important;height:110px !important}
 .nd-star b{font-size:1.15rem !important}
+/* ===== تحسين الجوال الكامل ===== */
+@media(max-width:768px){
+  /* الهيدر */
+  .site-head{position:sticky!important;top:0!important;z-index:50!important;background:var(--navy-3)!important;padding:10px 0!important}
+  .head-in{flex-wrap:wrap!important;gap:8px!important}
+  .nav-links{display:flex!important;flex-wrap:nowrap!important;order:3;width:100%;overflow-x:auto;padding:8px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{white-space:nowrap;font-size:.85rem!important;flex-shrink:0}
+  .head-cta{padding:.4em 1em!important;font-size:.8rem!important}
+  .logo{font-size:1.4rem!important}
+
+  /* الهيرو */
+  .hero{min-height:auto!important;padding:90px 16px 30px!important}
+  .hero-grid{grid-template-columns:1fr!important;gap:20px!important;text-align:center}
+  .cup-zone{order:-1!important}
+  .hero-img{width:min(240px,80%)!important;margin:0 auto}
+  .hero h1{font-size:clamp(1.6rem,7vw,2.2rem)!important;line-height:1.2!important}
+  .hero .tagline{font-size:.9rem!important;line-height:1.5!important;padding:0}
+  .hero-actions{justify-content:center!important;gap:10px!important}
+  .hero-actions .btn{padding:10px 18px!important;font-size:.85rem!important}
+  .chips{justify-content:center!important;gap:6px!important;flex-wrap:wrap}
+  .chips span{font-size:.75rem!important;padding:5px 10px!important}
+  .eyebrow{font-size:.8rem!important;padding:6px 14px!important}
+
+  /* شارة 7 ريال والورود */
+  .sticker{transform:scale(.55)!important;transform-origin:center}
+  .cup-zone .ff1,.cup-zone .ff2,.cup-zone .ff3{transform:scale(.5)!important}
+
+  /* قسم جديدنا */
+  .newdrop{padding:40px 16px!important}
+  .nd-head{font-size:clamp(1.8rem,6vw,2.5rem)!important}
+  .nd-star{width:90px!important;height:90px!important}
+  .nd-star b{font-size:1rem!important}
+  .nd-grid{grid-template-columns:1fr!important}
+
+  /* قسم العروض */
+  .offers{padding:40px 16px!important}
+  .offers .big{font-size:clamp(1.8rem,6vw,2.5rem)!important}
+  .o-card{padding:20px!important}
+
+  /* المنيو */
+  .menu{padding:40px 16px!important}
+  .menu .big{font-size:clamp(1.8rem,6vw,2.5rem)!important}
+  .m-grid{grid-template-columns:1fr!important;gap:16px!important}
+  .m-card{padding:16px!important}
+  .cup{width:90px!important}
+
+  /* ليش زيكا */
+  .why{padding:40px 16px!important}
+  .why .big{font-size:clamp(1.8rem,6vw,2.5rem)!important}
+  .w-grid{grid-template-columns:1fr!important;gap:16px!important}
+
+  /* واجهاتنا */
+  .faces{padding:40px 16px!important}
+  .faces .big{font-size:clamp(1.8rem,6vw,2.5rem)!important}
+  .f-grid{grid-template-columns:1fr!important}
+
+  /* الفروع */
+  .branches{padding:40px 16px!important}
+  .branches .big{font-size:clamp(1.8rem,6vw,2.5rem)!important}
+  .br-stats{flex-wrap:wrap!important;gap:12px!important}
+  .br-stats .stat{font-size:1.5rem!important}
+  .g-reviews{grid-template-columns:1fr!important}
+  .g-badge{flex-direction:column!important;gap:8px!important;padding:14px!important}
+  .g-badge b{font-size:1.8rem!important}
+
+  /* التوصيل */
+  .delivery{padding:40px 16px!important}
+  .delivery .big{font-size:clamp(1.8rem,6vw,2.5rem)!important}
+  .d-grid{grid-template-columns:1fr!important}
+
+  /* الفوتر */
+  .footer{padding:40px 16px!important}
+  .footer .big{font-size:clamp(1.5rem,5vw,2rem)!important}
+  .socials{gap:16px!important}
+}
 </style>
 </head>
 <body>
