@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1180">
+<title>زيكا | zeeka — برّد أعصابك</title>
+<meta name="description" content="كافيه زيكا — 26 فرع بمكة والطائف، مفتوح 24 ساعة. سلاش، مشروبات مثلّجة، بودينج وفرنش توست.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1b2a86; --navy-2:#141f66; --navy-3:#0d1547;
+  --turq:#2fbdd0; --cyan:#7deef7; --cyan-soft:#8beef6;
+  --pink:#f01868; --pink-2:#ff5c93;
+  --yellow:#ffd400; --white:#fff;
+  --berry:#8e1a3b;
+  --f-disp:'Baloo Bhaijaan 2',system-ui,sans-serif;
+  --f-body:'Rubik',system-ui,sans-serif;
+  --r:26px;
+  --hard:12px 12px 0 var(--navy-3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-padding-top:96px;overflow-x:hidden}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{background:var(--navy);color:var(--white);font-family:var(--f-body);line-height:1.8;overflow-x:hidden}
+::selection{background:var(--pink);color:#fff}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--f-disp);line-height:1.3}
+.wrap{width:min(1180px,92%);margin-inline:auto}
+.fl{display:inline-block;width:1em;height:1em;vertical-align:-.12em}
+.fl svg{width:100%;height:100%;display:block}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.04;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+[data-reveal]{opacity:0;transform:translateY(28px) scale(.97);transition:opacity .7s cubic-bezier(.34,1.56,.64,1),transform .7s cubic-bezier(.34,1.56,.64,1);transition-delay:var(--d,0s)}
+[data-reveal].is-in{opacity:1;transform:none}
+
+/* ===== الهيدر ===== */
+.site-head{position:fixed;inset-inline:0;top:0;z-index:50;padding:18px 0;transition:.4s;background:var(--navy-3)}
+.site-head.scrolled{background:rgba(13,21,71,.92);backdrop-filter:blur(8px);padding:10px 0;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.head-in{display:flex;align-items:center;gap:26px}
+.logo{display:flex;align-items:center;gap:8px;font-family:var(--f-disp);font-weight:800;font-size:1.9rem;color:var(--cyan);letter-spacing:1px}
+.logo .fl{color:var(--pink);font-size:1.2rem;animation:spin 9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.nav-links{display:flex;gap:24px;margin-inline-start:auto;font-weight:500;font-size:.95rem}
+.nav-links a{position:relative;padding-bottom:4px;color:#dfe6ff}
+.nav-links a::after{content:"";position:absolute;bottom:0;inset-inline-start:0;width:0;height:3px;border-radius:3px;background:var(--yellow);transition:width .3s}
+.nav-links a:hover{color:#fff}.nav-links a:hover::after{width:100%}
+.head-cta{font-family:var(--f-disp);font-weight:800;background:var(--pink);color:#fff;padding:.5em 1.5em;border-radius:99px;box-shadow:5px 5px 0 var(--navy-3);transition:transform .25s,box-shadow .25s}
+.head-cta:hover{transform:translate(-2px,-3px);box-shadow:8px 8px 0 var(--navy-3)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ===== البطل ===== */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:140px 0 80px;overflow:hidden}
+.hero-word{position:absolute;bottom:4%;inset-inline-start:-2%;font-family:var(--f-disp);font-weight:800;font-size:clamp(8rem,24vw,19rem);color:transparent;-webkit-text-stroke:2px rgba(125,238,247,.12);pointer-events:none;user-select:none;animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateY(-24px) rotate(-1deg)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--navy-3);font-weight:700;font-size:.85rem;padding:.4em 1.2em;border-radius:99px;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--navy-3);margin-bottom:22px}
+.hero h1{font-size:clamp(3rem,8.5vw,5.6rem);font-weight:800}
+.hero h1 .hl{color:var(--cyan);position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;inset-inline:0;bottom:.12em;height:.28em;background:var(--pink);z-index:-1;border-radius:6px;transform:rotate(-1.5deg)}
+.tagline{font-size:1.1rem;font-weight:300;color:#cdd6ff;max-width:36ch;margin:14px 0 28px}
+.tagline b{color:var(--yellow);font-weight:700}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--f-disp);font-weight:800;font-size:1.05rem;padding:.65em 1.9em;border-radius:99px;transition:transform .25s,box-shadow .25s}
+.btn-pink{background:var(--pink);box-shadow:7px 7px 0 var(--navy-3)}
+.btn-pink:hover{transform:translate(-2px,-4px);box-shadow:11px 11px 0 var(--navy-3)}
+.btn-ghost{border:3px solid var(--cyan);color:var(--cyan)}
+.btn-ghost:hover{background:var(--cyan);color:var(--navy-3);transform:translateY(-3px)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.chips span{font-size:.8rem;font-weight:500;border:2px solid rgba(125,238,247,.4);color:var(--cyan);padding:.3em 1.1em;border-radius:99px;transition:.3s}
+.chips span:hover{background:var(--cyan);color:var(--navy-3);transform:rotate(-2deg)}
+.cup-zone{position:relative;display:flex;justify-content:center}
+.hero-cup{transform:rotate(4deg);animation:bob 5s ease-in-out infinite alternate}
+@keyframes bob{to{transform:rotate(2deg) translateY(-16px)}}
+.sticker{position:absolute;top:6%;inset-inline-end:6%;background:var(--yellow);color:var(--navy-3);font-family:var(--f-disp);font-weight:800;font-size:1.05rem;line-height:1.4;text-align:center;width:110px;height:110px;border-radius:50%;display:grid;place-items:center;transform:rotate(12deg);box-shadow:6px 6px 0 var(--navy-3);animation:bob 6s 1s ease-in-out infinite alternate-reverse;z-index:3}
+.sticker b{font-size:1.7rem}
+.float-fl{position:absolute;color:var(--pink);animation:floaty 7s ease-in-out infinite alternate}
+.float-fl.c{color:var(--cyan)}
+@keyframes floaty{from{transform:translateY(0) rotate(0)}to{transform:translateY(-26px) rotate(40deg)}}
+.ff1{width:56px;top:0;inset-inline-start:4%}
+.ff2{width:34px;bottom:12%;inset-inline-start:14%;animation-delay:1.2s}
+.ff3{width:44px;top:16%;inset-inline-end:0;animation-delay:2s}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.cup-zone{margin-top:40px}}
+
+/* ===== جديدنا ===== */
+.newdrop{padding:110px 0;background:var(--yellow);position:relative;overflow:hidden;width:100vw;margin-inline:calc(50% - 50vw)}
+.nd-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.nd-badge{display:inline-block;background:var(--pink);color:#fff;font-family:var(--f-disp);font-weight:800;font-size:1.1rem;padding:.4em 1.5em;border-radius:99px;transform:rotate(-3deg);box-shadow:5px 5px 0 var(--navy-3)}
+.newdrop h2{font-size:clamp(2.8rem,6.5vw,4.4rem);font-weight:800;color:var(--navy-3);margin:16px 0 10px}
+.newdrop p{color:#3a3f66;max-width:46ch;font-weight:400}
+.nd-prices{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0 10px}
+.nd-card{display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--navy);border-radius:22px;padding:.9em 2.4em;box-shadow:6px 6px 0 var(--pink);color:var(--cyan);font-weight:700;font-size:1rem}
+.nd-card .nd-price-line b{font-family:var(--f-disp);font-size:1.7rem;color:var(--yellow);font-weight:800}
+.nd-card .nd-cal-line{font-size:.78rem;font-weight:500;color:var(--cyan);opacity:.9;border-top:1px dashed rgba(125,238,247,.4);padding-top:4px;margin-top:2px;width:100%;text-align:center}
+.nd-note{font-size:.88rem;font-weight:500;color:var(--navy-2)}
+.nd-cta{background:var(--navy);color:var(--cyan);box-shadow:7px 7px 0 var(--pink)}
+.nd-cta:hover{transform:translate(-2px,-4px);box-shadow:11px 11px 0 var(--pink)}
+.nd-ghost{border:3px solid var(--navy);color:var(--navy)}
+.nd-ghost:hover{background:var(--navy);color:var(--yellow);transform:translateY(-3px)}
+.nd-star{position:absolute;top:2%;inset-inline-end:6%;background:var(--pink);color:#fff;font-family:var(--f-disp);font-weight:800;font-size:1.25rem;width:108px;height:108px;border-radius:50%;display:grid;place-items:center;transform:rotate(14deg);box-shadow:6px 6px 0 var(--navy-3);animation:bob 6s 1s ease-in-out infinite alternate-reverse;z-index:3}
+@media(max-width:900px){.nd-grid{grid-template-columns:1fr}.nd-star{inset-inline-end:2%}.newdrop .cup-zone{margin-top:50px}}
+
+/* ===== الأكواب ===== */
+.cup{width:112px;margin-inline:auto;position:relative}
+.cup-top{position:relative;height:24px;background:var(--drink,#3a2417);border-radius:10px 10px 3px 3px;box-shadow:inset 0 5px 0 rgba(255,255,255,.18)}
+.ice{position:absolute;width:17px;height:15px;background:rgba(255,255,255,.8);border-radius:4px;top:-9px;inset-inline-start:16%;transform:rotate(14deg)}
+.ice.i2{inset-inline-start:auto;inset-inline-end:20%;top:-6px;transform:rotate(-16deg)}
+.cup-body{background:var(--turq);clip-path:polygon(3% 0,97% 0,84% 100%,16% 100%);height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:var(--f-disp);font-weight:800;font-size:1.2rem;line-height:.95;letter-spacing:1px}
+.cup-body .row{display:flex;align-items:center;gap:5px}
+.cup-body .fl{color:var(--pink);font-size:.85rem}
+.cup-base{height:9px;width:62%;margin:0 auto;background:var(--pink);border-radius:0 0 8px 8px}
+.bub{position:absolute;bottom:8px;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.5);animation:rise 3.5s linear infinite}
+@keyframes rise{from{transform:translateY(0);opacity:0}20%{opacity:1}to{transform:translateY(-120px);opacity:0}}
+.cup.big{width:230px}
+.cup.big .cup-body{height:290px;font-size:2.6rem}
+.cup.big .cup-top{height:44px;border-radius:16px 16px 4px 4px}
+.cup.big .cup-base{height:16px;border-radius:0 0 14px 14px}
+.cup.big .fl{font-size:1.7rem}
+.straw{position:absolute;top:-64px;inset-inline-start:24%;width:22px;height:110px;background:var(--pink);border-radius:10px;transform:rotate(14deg);box-shadow:inset 0 -14px 0 rgba(0,0,0,.15)}
+.slush{width:112px;margin-inline:auto}
+.slush-mound{height:52px;background:var(--sc);border-radius:50% 50% 0 0/95% 95% 0 0;background-image:radial-gradient(circle at 30% 40%,rgba(255,255,255,.5) 3px,transparent 4px),radial-gradient(circle at 65% 30%,rgba(255,255,255,.4) 3px,transparent 4px),radial-gradient(circle at 50% 65%,rgba(255,255,255,.4) 3px,transparent 4px)}
+.slush-cup{height:104px;clip-path:polygon(4% 0,96% 0,84% 100%,16% 100%);background:color-mix(in srgb,var(--sc) 55%,transparent);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--f-disp);font-weight:800;font-size:1.3rem;box-shadow:inset 0 0 0 3px rgba(255,255,255,.55)}
+
+/* ===== شريط متحرك ===== */
+.scallop{height:22px;background:radial-gradient(circle at 12px -4px,var(--turq) 13px,transparent 14px) repeat-x;background-size:26px 22px}
+.marquee-track{display:flex;width:max-content;animation:scrollX 24s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scrollX{to{transform:translateX(50%)}}
+.marquee{background:var(--turq);color:var(--navy-3);overflow:hidden;padding:12px 0;box-shadow:0 10px 0 var(--navy-3);margin-bottom:14px}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:var(--f-disp);font-weight:800;font-size:1.25rem;padding-inline:20px;white-space:nowrap;display:flex;align-items:center;gap:20px}
+.marquee-track .fl{color:var(--pink);font-size:1rem}
+@keyframes scrollX{to{transform:translateX(50%)}}
+
+/* ===== العروض (بطاقتين) ===== */
+.offers{padding:110px 0 120px;background:var(--pink)}
+.offers .sec-head h2{color:#fff}
+.offers .sec-head .fl{color:var(--yellow)}
+.offers .sec-sub{color:#ffd7e6}
+.offer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px;margin-top:56px;max-width:880px;margin-inline:auto}
+.offer-card{position:relative;background:#fff;border-radius:18px;padding:14px 14px 16px;color:var(--navy-3);transform:rotate(var(--r,0deg));transition:transform .4s cubic-bezier(.34,1.56,.64,1);box-shadow:10px 10px 0 var(--navy-3)}
+.offer-card:hover{transform:rotate(0) translateY(-8px)}
+.o-tag{position:absolute;top:-14px;inset-inline-start:20px;background:var(--yellow);color:var(--navy-3);font-weight:700;font-size:.72rem;padding:.3em 1.1em;border-radius:99px;transform:rotate(-3deg);box-shadow:3px 3px 0 var(--navy-3);z-index:2}
+.offer-art{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:3/4;background:var(--cyan-soft)}
+.offer-fb{position:absolute;inset:0;z-index:1;padding:24px 22px;display:flex;flex-direction:column;gap:10px;background:linear-gradient(160deg,#8beef6,#59cdd6)}
+.offer-fb .o-emoji{font-size:2.6rem;line-height:1}
+.offer-fb h3{font-size:1.7rem;font-weight:800;color:var(--navy-3)}
+.offer-fb .o-desc{font-weight:500;color:#0d3a44;font-size:.95rem}
+.offer-fb .o-gift{align-self:flex-start;background:var(--yellow);border-radius:12px;padding:6px 14px;font-weight:800;font-size:.88rem;box-shadow:4px 4px 0 rgba(13,21,71,.25);transform:rotate(-1.5deg)}
+.offer-fb .o-price{font-family:var(--f-disp);font-weight:800;font-size:2.6rem;color:var(--pink);line-height:1;margin-top:auto}
+.offer-fb .o-price small{font-family:var(--f-body);font-size:.9rem;color:var(--navy-3);font-weight:700}
+.offer-fb .o-notes{margin-top:auto;font-size:.66rem;color:#0d3a44;opacity:.85;line-height:1.8}
+.offer-art img.real{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.offer-art img.real.ok{opacity:1}
+.offer-card figcaption{padding-top:12px;font-weight:700;font-size:.85rem;text-align:center;color:var(--navy-3)}
+.offers-note{margin-top:46px;text-align:center;color:#fff;font-weight:500}
+.offers-note a{color:var(--yellow);font-weight:800;border-bottom:2px solid var(--yellow)}
+@media(max-width:900px){.offer-grid{grid-template-columns:1fr;max-width:420px}}
+
+/* ===== المنيو ===== */
+.menu-sec{padding:110px 0 90px}
+.sec-head{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.sec-head .fl{color:var(--pink);font-size:2rem;animation:spin 10s linear infinite}
+.sec-head h2{font-size:clamp(2.4rem,6vw,3.8rem);font-weight:800;color:var(--cyan)}
+.sec-sub{color:#aab6f2;font-weight:300;margin-bottom:52px}
+.menu-stack{display:grid;gap:36px}
+.panel{border-radius:var(--r);padding:36px;box-shadow:var(--hard)}
+.panel.pink{background:var(--pink)}
+.panel.cyan{background:var(--cyan-soft);color:var(--navy-3)}
+.panel.turq{background:var(--turq);color:var(--navy-3)}
+.panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:30px}
+.panel-head h3{font-size:1.9rem;font-weight:800}
+.panel.pink .panel-head h3{color:#fff}
+.panel-head .note{font-size:.85rem;font-weight:500;opacity:.85}
+.cards{display:grid;gap:22px}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.cards.c4{grid-template-columns:repeat(4,1fr)}
+.cards.c2{grid-template-columns:repeat(2,1fr)}
+.m-card{background:rgba(255,255,255,.14);border-radius:18px;padding:26px 18px 20px;text-align:center;transition:transform .35s cubic-bezier(.34,1.56,.64,1),background .3s}
+.m-card{position:relative}
+.m-card img.real{display:block;width:200px;height:245px;margin:0 auto 12px;object-fit:contain;border-radius:14px;opacity:0;transition:opacity .8s}
+.m-card:has(img.real.ok) .cup{display:none}
+.m-card:has(img.real.ok) .slush{display:none}
+.m-card:has(img.real.ok) .toast-svg{display:none}
+.m-card img.real[data-key="ft1"],.m-card img.real[data-key="ft2"]{width:300px;height:220px}
+.hero-img{display:block;width:min(420px,88%);margin:0 auto;object-fit:contain;opacity:0;transition:opacity .8s;filter:drop-shadow(14px 14px 0 rgba(13,21,71,.35))}
+#new .cup-zone{display:flex;align-items:center;justify-content:center}
+#new .cup-zone .hero-img{width:min(380px,72%)}
+#new .cup-zone .ff1{inset-inline-start:12%;top:8%;z-index:4}
+.marquee-track{gap:0}
+.marquee-track span{display:inline-flex;align-items:center}
+.marquee-track .fl{margin-inline:34px;display:inline-flex}
+#new .nd-badge,#new .nd-tag,#new .nd-pill,#new .nd-head,#new .nd-head *,#new .nd-badge *,#new .nd-tag *{transform:rotate(0deg) !important}
+.hero-img.ok{opacity:1}
+.cup-zone:has(img.hero-img.ok) .cup{display:none}.m-card img.real.ok{opacity:1}
+.panel.cyan .m-card,.panel.turq .m-card{background:rgba(255,255,255,.5)}
+.m-card:hover{transform:rotate(-2deg) scale(1.05);background:rgba(255,255,255,.24)}
+.m-card h4{font-size:1.2rem;font-weight:800;margin:14px 0 8px}
+.prices{display:flex;justify-content:center;align-items:center;gap:14px;font-size:.8rem;font-weight:500}
+.prices b{font-family:var(--f-disp);font-size:1.5rem;font-weight:800;display:block;line-height:1}
+.prices .sep{width:2px;height:26px;background:currentColor;opacity:.3;border-radius:2px}
+.prices span{text-align:center}
+.pcal{display:block;width:max-content;margin:6px auto 0;font-style:normal;font-size:.7rem;font-weight:700;background:rgba(13,21,71,.15);padding:.15em .8em;border-radius:99px;direction:ltr;unicode-bidi:isolate}
+.extra-pill .pcal{background:rgba(255,255,255,.45);color:var(--navy-3);margin:4px auto 0}
+.cal{display:inline-block;font-size:.7rem;font-weight:700;background:rgba(13,21,71,.15);padding:.15em .8em;border-radius:99px;margin-top:6px;direction:ltr;unicode-bidi:isolate}
+.brand-chip{display:inline-block;background:var(--navy-3);color:#fff;font-size:.68rem;font-weight:700;padding:.2em .9em;border-radius:99px;margin-top:8px}
+.brand-chip.red{background:#c8102e}
+.badge-ice{display:inline-block;background:var(--yellow);color:var(--navy-3);font-size:.72rem;font-weight:700;padding:.25em 1em;border-radius:6px;transform:rotate(-2deg);margin-top:8px;box-shadow:3px 3px 0 rgba(13,21,71,.35)}
+.extras{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.extra-pill{background:var(--yellow);color:var(--navy-3);font-family:var(--f-disp);font-weight:800;padding:.5em 1.6em;border-radius:99px;box-shadow:5px 5px 0 var(--navy-3);transition:transform .25s}
+.extra-pill:hover{transform:rotate(2deg) translateY(-4px)}
+.extra-pill b{font-size:1.2rem}
+.toast-svg{width:150px;margin-inline:auto}
+@media(max-width:900px){.cards.c4,.cards.c3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cards.c3,.cards.c4,.cards.c2{grid-template-columns:1fr}}
+
+/* ===== ليش زيكا ===== */
+.why{padding:100px 0;background:var(--navy-2)}
+.why-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.why-sticky{position:sticky;top:120px}
+.why h2{font-size:clamp(2.6rem,6vw,4rem);font-weight:800;color:var(--yellow)}
+.why p{color:#c3cdfa;font-weight:300;max-width:40ch;margin-top:14px}
+.reasons{display:flex;flex-direction:column;gap:22px}
+.reason{background:var(--navy);border:3px solid var(--turq);border-radius:20px;padding:22px 26px;display:flex;gap:18px;align-items:center;transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.34,1.56,.64,1),border-color .3s;box-shadow:8px 8px 0 var(--navy-3)}
+.reason:hover{transform:rotate(0) scale(1.03);border-color:var(--pink)}
+.reason .fl{font-size:2rem;color:var(--pink);flex-shrink:0}
+.reason h4{color:var(--cyan);font-size:1.25rem;font-weight:800}
+.reason p{color:#aab6f2;font-size:.92rem;font-weight:300;margin:0}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr}.why-sticky{position:static}}
+
+/* ===== واجهاتنا ===== */
+.faces{padding:100px 0}
+.faces-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:54px}
+.postcard{position:relative;background:#fff;border-radius:14px;padding:12px 12px 14px;transform:rotate(var(--r,0deg));transition:transform .45s cubic-bezier(.34,1.56,.64,1);box-shadow:10px 10px 0 var(--navy-3)}
+.postcard:hover{transform:rotate(0) scale(1.05);z-index:2}
+.postcard::before{content:"";position:absolute;top:-13px;right:50%;transform:translateX(50%) rotate(-3deg);width:86px;height:26px;background:rgba(255,212,0,.85);z-index:3}
+.art{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:3/4;background:#fff}
+.art svg{width:100%;height:100%}
+.art .real{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.art .real.ok{opacity:1}
+.postcard figcaption{color:var(--navy-3);font-weight:700;font-size:.85rem;text-align:center;padding-top:10px}
+.neon{animation:neon 5s linear infinite}
+@keyframes neon{0%,86%,90%,94%,100%{opacity:1}88%{opacity:.35}92%{opacity:.6}}
+@media(max-width:900px){.faces-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.faces-grid{grid-template-columns:1fr}}
+
+/* ===== الفروع ===== */
+.branches{padding:90px 0 110px;background:var(--navy-2)}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin:40px 0 36px}
+.stat{background:var(--navy);border:3px solid var(--pink);border-radius:18px;padding:14px 30px;text-align:center;transition:transform .3s}
+.stat:hover{transform:rotate(-2deg) scale(1.05)}
+.stat b{display:block;font-family:var(--f-disp);font-size:2.3rem;color:var(--yellow);line-height:1.1}
+.stat span{font-size:.85rem;color:#aab6f2}
+.branch-tools{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:34px}
+.tabs{display:flex;gap:12px;flex-wrap:wrap}
+.tab{font-family:var(--f-disp);font-weight:800;font-size:1.05rem;background:transparent;color:var(--cyan);border:3px solid var(--cyan);border-radius:99px;padding:.5em 1.7em;cursor:pointer;transition:.3s}
+.tab b{background:var(--cyan);color:var(--navy-3);border-radius:99px;padding:0 .6em;margin-inline-start:8px;font-size:.85em}
+.tab:hover{transform:translateY(-3px)}
+.tab.active{background:var(--yellow);border-color:var(--yellow);color:var(--navy-3);box-shadow:6px 6px 0 var(--navy-3);transform:rotate(-2deg)}
+.tab.active b{background:var(--navy-3);color:var(--yellow)}
+.b-search{flex:1;min-width:230px;display:flex;align-items:center;gap:10px;background:var(--navy);border:3px solid rgba(125,238,247,.35);border-radius:99px;padding:.6em 1.4em;transition:border-color .3s}
+.b-search:focus-within{border-color:var(--yellow)}
+.b-search .fl{color:var(--pink)}
+.b-search input{flex:1;background:none;border:0;outline:0;color:#fff;font-family:var(--f-body);font-size:1rem}
+.b-search input::placeholder{color:#7f8ccf}
+.branch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.b-card{background:var(--navy);border:3px solid rgba(125,238,247,.35);border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;opacity:0;transform:translateY(18px) scale(.96);transition:opacity .5s cubic-bezier(.34,1.56,.64,1),transform .5s cubic-bezier(.34,1.56,.64,1),border-color .3s;transition-delay:var(--d,0s)}
+.b-card.is-in{opacity:1;transform:none}
+.b-card:hover{border-color:var(--pink);transform:translateY(-6px) rotate(-1deg)}
+.b-num{font-family:var(--f-disp);color:var(--pink);font-weight:800;font-size:.85rem;letter-spacing:2px}
+.b-card h4{color:#fff;font-size:1.15rem;font-weight:800}
+.b-tag{font-size:.72rem;color:var(--yellow);font-weight:700;display:flex;align-items:center;gap:6px}
+.b-tag::before{content:"🕘"}
+.b-link{background:var(--yellow);color:var(--navy-3);font-weight:700;font-size:.8rem;padding:.35em 1.3em;border-radius:99px;margin-top:6px;transition:.25s}
+.b-link:hover{background:var(--pink);color:#fff;transform:scale(1.07)}
+.empty{grid-column:1/-1;text-align:center;color:#aab6f2;font-size:1.1rem;padding:40px 0}
+.hours{margin-top:48px;background:var(--yellow);color:var(--navy-3);border-radius:var(--r);padding:32px 34px;text-align:center;box-shadow:var(--hard);transform:rotate(-.6deg);display:flex;flex-direction:column;align-items:center;gap:20px}
+.hours .big-t{font-family:var(--f-disp);font-weight:800;font-size:1.8rem;line-height:1.4;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
+.hours .big-t .fl{color:var(--pink)}
+.hours .sub{font-weight:400;font-size:1rem;max-width:48ch}
+.hours .links-btn{background:var(--navy-3);color:var(--yellow);font-family:var(--f-disp);font-weight:800;padding:.65em 2em;border-radius:99px;transition:.25s;box-shadow:6px 6px 0 rgba(13,21,71,.3)}
+.hours .links-btn:hover{background:var(--pink);color:#fff;transform:translateY(-3px)}
+
+/* ===== التوصيل ===== */
+.delivery{padding:100px 0 110px;background:var(--pink);color:var(--navy-3)}
+.delivery .sec-head h2{color:#fff}
+.delivery .sec-head .fl{color:var(--yellow)}
+.delivery .sec-sub{color:#ffd7e6}
+.del-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px;margin-top:54px;max-width:900px;margin-inline:auto}
+.del-card{background:var(--yellow);border-radius:22px;padding:38px 30px;text-align:center;box-shadow:10px 10px 0 var(--navy-3);transform:rotate(var(--r,0deg));transition:transform .4s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:column;align-items:center;gap:10px}
+.del-card:hover{transform:rotate(0) translateY(-8px)}
+.del-emoji{font-size:3rem;line-height:1}
+.del-logo{width:92px;height:92px;object-fit:contain;margin-inline:auto}
+.del-logo[alt="هنقرستيشن"]{width:170px;height:110px} 
+.del-card h3{font-size:1.9rem;font-weight:800;color:var(--navy-3)}
+.del-card p{color:var(--navy-2);font-weight:400;font-size:.95rem;max-width:30ch}
+.del-btn{margin-top:14px;font-family:var(--f-disp);font-weight:800;padding:.6em 2.2em;border-radius:99px;color:#fff;background:var(--pink);box-shadow:5px 5px 0 var(--navy-3);transition:.25s}
+.del-card:hover .del-btn{transform:translateY(-3px)}
+.del-card.kt .del-btn{background:var(--pink);color:#fff}
+@media(max-width:760px){.del-grid{grid-template-columns:1fr;max-width:420px}}
+
+/* ===== تقييمات قوقل ===== */
+.g-wrap{margin-top:38px;display:flex;flex-direction:column;align-items:center;gap:22px}
+.g-badge{display:flex;flex-direction:column;align-items:center;gap:8px;background:var(--navy-3);color:#fff;padding:18px 26px;border-radius:16px;font-weight:800;font-size:1.05rem;box-shadow:6px 6px 0 var(--yellow-shadow)}
+.g-badge b{font-size:2.2rem}
+.g-badge .g-stars{font-size:1.3rem}
+.g-badge b{font-size:1.6rem}
+.g-stars{color:#fbbc04;direction:ltr;letter-spacing:2px;font-size:1rem}
+.g-badge .g-stars{color:var(--yellow);font-size:1.15rem}
+.g-reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:100%;max-width:980px}
+.g-card{background:#fff;border-radius:18px;padding:22px 20px;text-align:start;box-shadow:8px 8px 0 var(--navy-3);display:flex;flex-direction:column;gap:10px}
+.g-card p{color:var(--navy-2);font-size:.92rem;font-weight:500;line-height:1.8;margin:0}
+.g-who{display:flex;align-items:center;gap:10px;margin-top:auto}
+.g-ava{width:34px;height:34px;border-radius:50%;background:var(--turq);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem}
+.g-name{font-weight:700;color:var(--navy-3);font-size:.85rem}
+.g-link{font-weight:800;color:var(--navy-3);text-decoration:underline;text-underline-offset:4px}
+.g-link:hover{color:var(--pink)}
+@media(max-width:760px){.g-reviews{grid-template-columns:1fr}}
+
+/* ===== الفوتر ===== */
+.footer{background:var(--navy-3);padding:70px 0 36px;text-align:center}
+.footer .big{font-family:var(--f-disp);font-weight:800;font-size:clamp(3.6rem,11vw,7.5rem);color:var(--cyan);display:flex;align-items:center;justify-content:center;gap:.15em;line-height:1}
+.footer .big .fl{color:var(--pink);font-size:.55em}
+.footer .big{display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:8px}
+.footer .bio{color:#aab6f2;font-weight:300;max-width:46ch;margin:10px auto 0}
+.socials{display:flex;justify-content:center;gap:26px;margin:28px 0 40px;font-weight:500;flex-wrap:wrap}
+.socials a{color:#c3cdfa;transition:.3s}
+.socials a:hover{color:var(--yellow);transform:rotate(-2deg)}
+.fine{border-top:1px solid rgba(125,238,247,.15);padding-top:22px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;color:#7f8ccf;font-size:.8rem}
+
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ [data-reveal],.b-card{opacity:1;transform:none}
+}
+.footer{display:flex;flex-direction:column;align-items:center;text-align:center}
+.footer .wrap{justify-content:center;text-align:center}
+.footer p{text-align:center;margin-inline:auto}
+.del-card{display:flex;flex-direction:column;align-items:center}
+.del-card .del-btn{margin-top:auto}
+.del-card p{min-height:3.2em}
+/* ===== تحسين الجوال ===== */
+@media(max-width:320px){
+  .site-head{position:sticky;top:0;z-index:50;background:var(--navy-3)}
+  .head-in{flex-wrap:wrap}
+  .nav-links{display:flex !important;flex-wrap:nowrap !important;order:3;width:100%;justify-content:flex-start;gap:18px;overflow-x:auto;padding:8px 4px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{white-space:nowrap;font-size:.95rem;flex-shrink:0;color:#fff}
+  
+  /* ترتيب الهيرو: نص فوق وصورة تحت بالمنتصف */
+  .hero{min-height:auto !important;padding-top:90px !important;padding-bottom:30px !important}
+  .hero h1{font-size:clamp(1.6rem,6vw,2.2rem) !important;line-height:1.2 !important} /* نفس حجم جديدنا */
+  .hero .tagline{font-size:.92rem !important;line-height:1.6 !important;padding:0 10px}
+  .hero-actions{gap:10px !important;flex-wrap:wrap;justify-content:center}
+  .hero-actions .btn{padding:10px 18px !important;font-size:.88rem !important}
+  .chips{gap:6px !important;justify-content:center;flex-wrap:wrap}
+  .chips span{font-size:.78rem !important;padding:6px 12px !important}
+  
+  /* الصورة والشارة والورود */
+  .cup-zone{min-height:0;padding:10px 0}
+  .hero-img{width:min(260px,75%) !important}
+  .sticker{transform:scale(.6) !important;transform-origin:center} /* تصغير شارة 7 ريال */
+  .cup-zone .ff1,.cup-zone .ff2,.cup-zone .ff3{transform:scale(.55) !important} /* تصغير الورود */
+  .nd-star{font-size:.85rem !important}
+    .g-badge{flex-direction:column !important;align-items:center !important;gap:6px !important;padding:12px 16px !important;font-size:.82rem !important}
+  .g-badge .g-stars,.g-badge b{display:inline-block}
+}
+.nd-star{width:110px !important;height:110px !important}
+.nd-star b{font-size:1.15rem !important}
+</style>
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="flower" viewBox="0 0 64 64"><g fill="currentColor"><circle cx="32" cy="14" r="11"/><circle cx="47.6" cy="23" r="11"/><circle cx="47.6" cy="41" r="11"/><circle cx="32" cy="50" r="11"/><circle cx="16.4" cy="41" r="11"/><circle cx="16.4" cy="23" r="11"/><circle cx="32" cy="32" r="10"/></g></symbol>
+</defs></svg>
+
+<header class="site-head" id="siteHead">
+  <div class="wrap head-in">
+    <a href="#" class="logo">zeeka <span class="fl"><svg><use href="#flower"/></svg></span></a>
+    <nav class="nav-links">
+      <a href="#new">جديدنا</a>
+      <a href="#offers">العروض</a>
+      <a href="#menu">المنيو</a>
+      <a href="#why">ليش زيكا</a>
+      <a href="#faces">واجهاتنا</a>
+      <a href="#branches">الفروع</a>
+      <a href="#delivery">التوصيل</a>
+    </nav>
+    <a href="#branches" class="head-cta">أقرب فرع</a>
+  </div>
+</header>
+
+<!-- البطل -->
+<section class="hero">
+  <div class="hero-word" aria-hidden="true">zeeka</div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-reveal>مكة • الطائف <span class="fl" style="color:var(--pink)"><svg><use href="#flower"/></svg></span> مفتوح 24 ساعة</span>
+      <h1 data-reveal style="--d:.1s"><span class="hl">ز&#8201;يكا</span> يبرّد<br>على أعصابك</h1>
+      <p class="tagline" data-reveal style="--d:.2s">سلاش منعش، مشروبات مثلّجة، بودينج يذوب، وفرنش توست يستاهل الطابور — <b>كل هذا في زيكا.</b></p>
+      <div class="hero-actions" data-reveal style="--d:.3s">
+        <a href="#new" class="btn btn-pink">شوف جديدنا 🍓</a>
+        <a href="#branches" class="btn btn-ghost">27 فرع بانتظارك</a>
+      </div>
+      <div class="chips" data-reveal style="--d:.4s">
+        <span>الأسعار تبدأ من 5 ر.س</span><span>عادي وكبير</span><span>مع آيس كريم 🍦</span><span>يومياً 24 ساعة</span>
+      </div>
+    </div>
+    <div class="cup-zone" data-reveal style="--d:.25s">
+      <span class="float-fl ff1"><svg><use href="#flower"/></svg></span>
+      <span class="float-fl ff2 c"><svg><use href="#flower"/></svg></span>
+      <span class="float-fl ff3"><svg><use href="#flower"/></svg></span>
+      <div class="sticker"><span style="display:flex;align-items:center;justify-content:center;gap:6px;height:100%;font-size:1.05rem"><b style="font-size:2rem">7</b> ريال</span></div>
+      <img class="real hero-img" data-key="h1" src="images/hero-slush.png" alt="سلاش رد بُل آيسد فانيلا" fetchpriority="high" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="cup big hero-cup" style="--drink:#35c4d6">
+        <span class="straw"></span>
+        <div class="cup-top"><i class="ice"></i><i class="ice i2"></i></div>
+        <div class="cup-body" style="position:relative;overflow:hidden">
+          <span class="bub" style="inset-inline-start:30%"></span>
+          <span class="bub" style="inset-inline-start:55%;animation-delay:1.2s;width:7px;height:7px"></span>
+          <span class="bub" style="inset-inline-start:70%;animation-delay:2.2s"></span>
+          <span>ze</span><span>ek</span>
+          <span class="row">a <span class="fl"><svg><use href="#flower"/></svg></span></span>
+        </div>
+        <div class="cup-base"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="scallop" aria-hidden="true"></div>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>آيس كركديه <i class="fl"><svg><use href="#flower"/></svg></i></span><span>آيس تي خوخ <i class="fl"><svg><use href="#flower"/></svg></i></span><span>آيس تي توت <i class="fl"><svg><use href="#flower"/></svg></i></span><span>سلاش مانجو <i class="fl"><svg><use href="#flower"/></svg></i></span><span>رد بُل بطيخ <i class="fl"><svg><use href="#flower"/></svg></i></span><span>بودينج كيندر <i class="fl"><svg><use href="#flower"/></svg></i></span><span>فرنش توست نوتيلا <i class="fl"><svg><use href="#flower"/></svg></i></span>
+    <span>آيس كركديه <i class="fl"><svg><use href="#flower"/></svg></i></span><span>آيس تي خوخ <i class="fl"><svg><use href="#flower"/></svg></i></span><span>آيس تي توت <i class="fl"><svg><use href="#flower"/></svg></i></span><span>سلاش مانجو <i class="fl"><svg><use href="#flower"/></svg></i></span><span>رد بُل بطيخ <i class="fl"><svg><use href="#flower"/></svg></i></span><span>بودينج كيندر <i class="fl"><svg><use href="#flower"/></svg></i></span><span>فرنش توست نوتيلا <i class="fl"><svg><use href="#flower"/></svg></i></span>
+  </div>
+</div>
+
+<!-- جديدنا -->
+<section class="newdrop" id="new">
+  <div class="wrap nd-grid">
+    <div data-reveal>
+      <span class="nd-badge">جديدنا 🍓</span>
+      <h2>آيس تي توت</h2>
+      <p>منعش، توتي، ولونه يسرق العين من أول نظرة… نفس الانتعاش اللي تعشقه، بس بنكهة التوت الجديدة.</p>
+           <div class="nd-prices">
+                <span class="nd-card">
+          <span class="nd-price-line">حجم واحد <b>5</b> ر.س</span>
+          <span class="nd-cal-line">80 سعرة حرارية</span>
+        </span>
+      </div>
+      <p class="nd-note">ما لك عذر ما تجربه — 5 ر.س وخلاص 😄🍓</p>
+      <div class="hero-actions" style="margin-top:26px">
+        <a href="#branches" class="btn nd-cta">اطلبه من أقرب فرع</a>
+        <a href="#menu" class="btn nd-ghost">شوف المنيو</a>
+      </div>
+    </div>
+    <div class="cup-zone" data-reveal style="--d:.15s">
+      <span class="float-fl ff1"><svg><use href="#flower"/></svg></span>
+      <span class="float-fl ff3 c"><svg><use href="#flower"/></svg></span>
+      <div class="nd-star">جديد!</div>
+      <img class="real hero-img" data-key="h2" src="images/new-tout.png" alt="آيس تي توت" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="cup big hero-cup" style="--drink:var(--berry)">
+        <span class="straw"></span>
+        <div class="cup-top"><i class="ice"></i><i class="ice i2"></i></div>
+        <div class="cup-body" style="position:relative;overflow:hidden">
+          <span class="bub" style="inset-inline-start:30%"></span>
+          <span class="bub" style="inset-inline-start:60%;animation-delay:1.4s;width:7px;height:7px"></span>
+          <span>ze</span><span>ek</span>
+          <span class="row">a <span class="fl"><svg><use href="#flower"/></svg></span></span>
+        </div>
+        <div class="cup-base"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- العروض -->
+<section class="offers" id="offers">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><h2>عروض زيكا</h2></div>
+    <p class="sec-sub" data-reveal style="--d:.1s"></p>
+    <div class="offer-grid">
+
+      <figure class="offer-card" style="--r:-2deg" data-reveal>
+        <span class="o-tag">العرض الحالي 🐙</span>
+        <div class="offer-art">
+          <div class="offer-fb">
+            <span class="o-emoji">🐙</span>
+            <h3>يوم الاخطبوط</h3>
+            <p class="o-desc">بودينج كيندر + آيس تي أو بلاك كوفي أو كركديه</p>
+            <span class="o-gift">🎁 هدية: اخطبوط محشي واحد مع كل طلب</span>
+            <p class="o-notes">لفترة محدودة • داخل الفروع فقط (لا يشمل تطبيقات التوصيل) • حتى نفاد الكمية • المشروب حجم عادي</p>
+          </div>
+          <img class="real" data-key="o1" src="images/offer-1.jpg" alt="بوستر عرض يوم الاخطبوط العالمي" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'">
+        </div>
+        <figcaption>🐙 بودينج كيندر + مشروب… والاخطبوط علينا كل هذا بـ 17 ريال</figcaption>
+      </figure>
+
+      <figure class="offer-card" style="--r:1.5deg;--d:.12s" data-reveal>
+        <span class="o-tag">عرض جديد 🔥</span>
+        <div class="offer-art">
+          <div class="offer-fb">
+            <span class="o-emoji">🍞🍦</span>
+            <h3>كومبو الـ 9 ريال</h3>
+            <p class="o-desc">آيس تي أو قهوة اليوم + فرنش توست كيندر + آيس كريم</p>
+            <span class="o-gift">🔥 خصم 52% — قبل 19 ر.س</span>
+            <p class="o-notes">من 16 إلى 20 أكتوبر 2026 • لمدة 5 أيام • حجم الكوب عادي • حتى نفاد الكمية اليومية • لا يشمل تطبيقات التوصيل</p>
+          </div>
+          <img class="real" data-key="o2" src="images/offer-2.jpg" alt="بوستر عرض الـ 9 ريال الجديد" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'">
+        </div>
+        <figcaption>آيس تي أو قهوة اليوم + فرنش توست كيندر + آيس كريم بـ 9 ريال بس!</figcaption>
+      </figure>
+
+    
+
+    </div>
+    <p class="offers-note" data-reveal style="--d:.3s">العروض تطير وما تنتظر أحد 🪽 — كن أول من يعرف:<span style="display:block;margin-top:10px"><a href="https://www.instagram.com/zeeka_sa" target="_blank" rel="noopener" style="white-space:nowrap">انستقرام @zeeka_sa</a> • <a href="https://www.tiktok.com/@zeeka_sa" target="_blank" rel="noopener" style="white-space:nowrap">تيك توك @zeeka_sa</a></span></p>
+  </div>
+</section>
+
+<!-- المنيو -->
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><h2>المنيو</h2></div>
+    <p class="sec-sub" data-reveal style="--d:.1s">كل كوب له حكاية وسعر — مرّر وشف اللي يناديك 🩵</p>
+    <div class="menu-stack">
+      <div class="panel pink" data-reveal>
+        <div class="panel-head"><h3>المشروبات الباردة</h3><span class="note">البرودة اللي تستاهل الطابور 🩵</span></div>
+        <div class="cards c4">
+          <article class="m-card"><img class="real" data-key="d1" src="images/drink-1.jpg" alt="آيس كركديه" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="cup" style="--drink:#9c1039"><div class="cup-top"><i class="ice"></i><i class="ice i2"></i></div><div class="cup-body"><span>ze</span><span>ek</span><span class="row">a <span class="fl"><svg><use href="#flower"/></svg></span></span></div><div class="cup-base"></div></div><h4>آيس كركديه</h4><div class="prices"><span>عادي<b>5</b><i class="pcal">80 cal</i></span><span class="sep"></span><span>كبير<b>9</b><i class="pcal">160 cal</i></span></div></article>
+          <article class="m-card"><img class="real" data-key="d2" src="images/drink-2.jpg" alt="آيس تي خوخ" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="cup" style="--drink:#d97b1f"><div class="cup-top"><i class="ice"></i><i class="ice i2"></i></div><div class="cup-body"><span>ze</span><span>ek</span><span class="row">a <span class="fl"><svg><use href="#flower"/></svg></span></span></div><div class="cup-base"></div></div><h4>آيس تي خوخ</h4><div class="prices"><span>عادي<b>5</b><i class="pcal">80 cal</i></span><span class="sep"></span><span>كبير<b>9</b><i class="pcal">160 cal</i></span></div></article>
+          <article class="m-card"><img class="real" data-key="d3" src="images/drink-3.jpg" alt="آيس تي توت" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="cup" style="--drink:var(--berry)"><div class="cup-top"><i class="ice"></i><i class="ice i2"></i></div><div class="cup-body"><span>ze</span><span>ek</span><span class="row">a <span class="fl"><svg><use href="#flower"/></svg></span></span></div><div class="cup-base"></div></div><h4>آيس تي توت 🍓</h4><div class="prices"><span><b>5</b> ر.س<i class="pcal">80 cal</i></span></div><span class="badge-ice">جديد 🍓</span></article>
+          <article class="m-card"><img class="real" data-key="d4" src="images/drink-4.jpg" alt="قهوة اليوم" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="cup" style="--drink:#3a2417"><div class="cup-top"><i class="ice"></i><i class="ice i2"></i></div><div class="cup-body"><span>ze</span><span>ek</span><span class="row">a <span class="fl"><svg><use href="#flower"/></svg></span></span></div><div class="cup-base"></div></div><h4>قهوة اليوم</h4><div class="prices"><span>عادي<b>5</b><i class="pcal">5 cal</i></span><span class="sep"></span><span>كبير<b>9</b><i class="pcal">8 cal</i></span></div></article>
+        </div>
+      </div>
+
+      <div class="panel turq" data-reveal>
+        <div class="panel-head"><h3>السلاش</h3><span class="note">ثلج يذوب… والسعادة تزيد </span></div>
+        <div class="cards c4">
+          <article class="m-card"><img class="real" data-key="s1" src="images/slush-1.png" alt="سلاش مانجو" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="slush" style="--sc:#ffb400"><div class="slush-mound"></div><div class="slush-cup">ze</div></div><h4>مانجو</h4><div class="prices"><span><b>5</b> ر.س<i class="pcal">80 cal</i></span></div></article>
+          <article class="m-card"><img class="real" data-key="s2" src="images/slush-2.png" alt="سلاش رد بُل بطيخ" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="slush" style="--sc:#ff4d7e"><div class="slush-mound"></div><div class="slush-cup">ze</div></div><h4>رد بُل بطيخ</h4><div class="prices"><span><b>7</b> ر.س<i class="pcal">80 cal</i></span></div><span class="brand-chip">Red Bull</span></article>
+          <article class="m-card"><img class="real" data-key="s3" src="images/slush-3.png" alt="سلاش كود رد توت" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="slush" style="--sc:#e8262c"><div class="slush-mound"></div><div class="slush-cup">ze</div></div><h4>كود رد توت</h4><div class="prices"><span><b>5</b> ر.س<i class="pcal">80 cal</i></span></div><span class="brand-chip" style="background:#e8262c">Code Red</span></article>
+          <article class="m-card"><img class="real" data-key="s4" src="images/slush-4.png" alt="سلاش رد بُل آيسد فانيلا" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><div class="slush" style="--sc:#35c4d6"><div class="slush-mound"></div><div class="slush-cup">ze</div></div><h4>رد بُل آيسد فانيلا</h4><div class="prices"><span><b>7</b> ر.س<i class="pcal">80 cal</i></span></div><span class="brand-chip">Red Bull</span></article>
+        </div>
+      </div>
+
+      <div class="cards c2" style="display:grid;gap:36px">
+        <div class="panel cyan" data-reveal>
+          <div class="panel-head"><h3>البودينج</h3><span class="note">حلا يذوب… وقلوب تذوب معه 🍫</span></div>
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <article class="m-card"><img class="real" data-key="pd1" src="images/pudding-1.png" alt="شوكلت بودينج" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><h4>شوكلت بودينج</h4><div class="prices"><b>14</b> ر.س</div><span class="cal">280 cal</span></article>
+            <article class="m-card"><img class="real" data-key="pd2" src="images/pudding-2.png" alt="بودينج كيندر" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><h4>بودينج كيندر</h4><div class="prices"><b>17</b> ر.س</div><span class="cal">282 cal</span><br><span class="brand-chip">kinder</span></article>
+            <article class="m-card"><img class="real" data-key="pd3" src="images/pudding-3.png" alt="بودينج مالتيزرز" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><h4>بودينج مالتيزرز</h4><div class="prices"><b>17</b> ر.س</div><span class="cal">350 cal</span><br><span class="brand-chip red">Maltesers</span></article>
+          </div>
+        </div>
+        <div class="panel pink" data-reveal style="--d:.1s">
+          <div class="panel-head"><h3>الفرنش توست</h3><span class="note">توست يذوب… وآيس كريم يبرد القلب 🍦</span></div>
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <article class="m-card"><svg class="toast-svg" viewBox="0 0 140 90"><g transform="rotate(-6 40 50)"><rect x="10" y="34" width="64" height="30" rx="9" fill="#eab56b"/><path d="M10 40a32 12 0 0 1 64 0v4h-8v8a4 4 0 0 1-8 0v-8h-10v10a4 4 0 0 1-8 0v-10h-10v8a4 4 0 0 1-8 0v-8H10z" fill="#5a3418"/></g><path d="M108 62h24l-4 20h-16z" fill="#2fbdd0"/><circle cx="120" cy="56" r="9" fill="#fff"/><circle cx="120" cy="46" r="7" fill="#fff"/><circle cx="120" cy="38" r="5" fill="#fff"/></svg><img class="real" data-key="ft1" src="images/toast-1.png" alt="فرنش توست نوتيلا" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><h4>فرنش توست نوتيلا</h4><div class="prices"><b>12</b> ر.س</div><span class="cal">560 cal</span><br><span class="badge-ice">مع آيس كريم</span></article>
+            <article class="m-card"><svg class="toast-svg" viewBox="0 0 140 90"><g transform="rotate(-6 40 50)"><rect x="10" y="34" width="64" height="30" rx="9" fill="#eab56b"/><path d="M10 40a32 12 0 0 1 64 0v4h-8v8a4 4 0 0 1-8 0v-8h-10v10a4 4 0 0 1-8 0v-10h-10v8a4 4 0 0 1-8 0v-8H10z" fill="#d9a05b"/></g><path d="M108 62h24l-4 20h-16z" fill="#2fbdd0"/><circle cx="120" cy="56" r="9" fill="#fff"/><circle cx="120" cy="46" r="7" fill="#fff"/><circle cx="120" cy="38" r="5" fill="#fff"/></svg><img class="real" data-key="ft2" src="images/toast-2.png" alt="فرنش توست كيندر" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'"><h4>فرنش توست كيندر</h4><div class="prices"><b>12</b> ر.س</div><span class="cal">490 cal</span><br><span class="badge-ice">مع آيس كريم</span></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel turq" data-reveal>
+        <div class="panel-head"><h3>إكسترا</h3><span class="note">صوص زيادة… سعادة زيادة 🍫</span></div>
+        <div class="extras">
+                <span class="extra-pill">+ صوص كيندر بـ 3 ريال  <i class="pcal">29 cal</i></span>
+        <span class="extra-pill">+ صوص نوتيلا بـ 3 ريال  <i class="pcal">31 cal</i></span>
+        <span class="extra-pill">+ صوص شوكلت بـ 3 ريال <i class="pcal">27 cal</i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ليش زيكا -->
+<section class="why" id="why">
+  <div class="wrap why-grid">
+    <div class="why-sticky">
+      <div class="sec-head" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><h2>ليش زيكا؟</h2></div>
+      <p data-reveal style="--d:.1s">ما فتحنا عشان نبيع أكواب… فتحنا عشان نبرّد الأعصاب ونحلّي الجلسات 🤍.</p>
+    </div>
+    <div class="reasons">
+      <div class="reason" style="--r:-1.5deg" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><div><h4>برودة تدوم</h4><p>سلاش ومشروبات مثلّجة تضبط مزاجك من أول شفطة.</p></div></div>
+      <div class="reason" style="--r:1.5deg" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><div><h4>نكهات تردّ الروح</h4><p>رد بُل بطيخ، آيسد فانيلا، وكود رد توت — تشكيلة ما تلقاها عند غيرنا.</p></div></div>
+      <div class="reason" style="--r:-1.5deg" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><div><h4>حلا يذوب</h4><p>بودينج كيندر ومالتيزرز، وفرنش توست يوصلك مع الآيس كريم.</p></div></div>
+      <div class="reason" style="--r:1.5deg" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><div><h4>أقرب لكم، دايم</h4><p>27 فرع بمكة والطائف، وفي خدمتكم يومياً 24 ساعة.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- واجهاتنا -->
+<section class="faces" id="faces">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><h2>واجهاتنا</h2></div>
+    <p class="sec-sub" data-reveal style="--d:.1s">كل واجهة هنا وراها فرع… دوّر على فرعك بالخرائط تحت.</p>
+    <div class="faces-grid">
+
+      <figure class="postcard" style="--r:-2.5deg" data-reveal>
+        <div class="art">
+          <img class="real" data-key="p1" src="images/zeeka-1.jpg" alt="واجهة زيكا الزجاجية — فرع حي الشوقية مكة" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'">
+          <svg viewBox="0 0 300 400" aria-hidden="true">
+            <defs>
+              <linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d4a55"/><stop offset="1" stop-color="#0e2233"/></linearGradient>
+              <radialGradient id="warm" cx=".5" cy=".85" r=".7"><stop offset="0" stop-color="#ffcf7e" stop-opacity=".5"/><stop offset="1" stop-color="#ffcf7e" stop-opacity="0"/></radialGradient>
+              <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="300" height="400" fill="#efe7d6"/>
+            <g fill="#e2d7c2"><rect y="26" width="300" height="8"/><g><rect x="8" y="34" width="8" height="7"/><rect x="28" y="34" width="8" height="7"/><rect x="48" y="34" width="8" height="7"/><rect x="68" y="34" width="8" height="7"/><rect x="88" y="34" width="8" height="7"/><rect x="108" y="34" width="8" height="7"/><rect x="128" y="34" width="8" height="7"/><rect x="148" y="34" width="8" height="7"/><rect x="168" y="34" width="8" height="7"/><rect x="188" y="34" width="8" height="7"/><rect x="208" y="34" width="8" height="7"/><rect x="228" y="34" width="8" height="7"/><rect x="248" y="34" width="8" height="7"/><rect x="268" y="34" width="8" height="7"/><rect x="288" y="34" width="8" height="7"/></g></g>
+            <rect x="0" y="41" width="26" height="359" fill="#e8ddc8"/>
+            <rect x="274" y="41" width="26" height="359" fill="#e8ddc8"/>
+            <rect x="26" y="41" width="248" height="323" fill="url(#night)"/>
+            <rect x="26" y="41" width="248" height="323" fill="url(#warm)"/>
+            <g stroke="#0b1620" stroke-width="3"><line x1="90" y1="41" x2="90" y2="96"/><line x1="150" y1="41" x2="150" y2="112"/><line x1="210" y1="41" x2="210" y2="96"/></g>
+            <g fill="#23343c"><path d="M78 96h24l-4 14h-16z"/><path d="M138 112h24l-4 14h-16z"/><path d="M198 96h24l-4 14h-16z"/></g>
+            <g fill="#ffd98a" filter="url(#glow)"><circle cx="90" cy="114" r="4"/><circle cx="150" cy="130" r="4"/><circle cx="210" cy="114" r="4"/></g>
+            <g class="neon" filter="url(#glow)">
+              <text x="62" y="186" font-family="'Baloo Bhaijaan 2',sans-serif" font-weight="800" font-size="48" fill="#35e6f2">zeeka</text>
+              <circle cx="238" cy="172" r="9" fill="#ff2e3e"/>
+            </g>
+            <rect x="26" y="210" width="248" height="26" fill="#e8e0cf"/>
+            <text x="150" y="262" text-anchor="middle" font-family="'Baloo Bhaijaan 2',sans-serif" font-weight="800" font-size="32" fill="#2b2b2b">زيكا</text>
+            <g fill="#14202a"><circle cx="70" cy="196" r="7"/><rect x="62" y="202" width="16" height="10" rx="4"/><circle cx="230" cy="196" r="7"/><rect x="222" y="202" width="16" height="10" rx="4"/></g>
+            <rect x="86" y="300" width="128" height="12" fill="#ffd98a" opacity=".85"/>
+            <rect x="86" y="312" width="128" height="26" fill="#caa25f"/>
+            <g fill="#101820"><circle cx="110" cy="272" r="8"/><rect x="100" y="280" width="20" height="52" rx="7"/><circle cx="152" cy="268" r="8"/><rect x="142" y="276" width="20" height="56" rx="7"/><circle cx="194" cy="272" r="8"/><rect x="184" y="280" width="20" height="52" rx="7"/></g>
+            <g fill="#8a6a3a"><rect x="228" y="306" width="10" height="30" rx="3"/><rect x="246" y="306" width="10" height="30" rx="3"/></g>
+            <g fill="#d8d2c2"><rect x="140" y="296" width="5" height="52" rx="2"/><rect x="158" y="296" width="5" height="52" rx="2"/></g>
+            <rect y="364" width="300" height="36" fill="#b9b3a6"/>
+            <rect y="364" width="300" height="6" fill="#a29c8e"/>
+          </svg>
+        </div>
+        <figcaption>📍مكة - فرع حي الشوقية</figcaption>
+      </figure>
+
+      <figure class="postcard" style="--r:2deg" data-reveal>
+        <div class="art">
+          <img class="real" data-key="p2" src="images/zeeka-2.jpg" alt="كيوسك درايف ثرو زيكا — فرع حي الفيحاء مكة" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'">
+          <svg viewBox="0 0 300 400" aria-hidden="true">
+            <rect width="300" height="330" fill="#dfe9f2"/>
+            <g fill="#8fb98a"><circle cx="20" cy="240" r="34"/><circle cx="288" cy="228" r="40"/><circle cx="270" cy="252" r="30"/></g>
+            <rect x="150" y="52" width="10" height="60" fill="#3fb9c6"/>
+            <g transform="rotate(-8 172 62)">
+              <rect x="118" y="34" width="108" height="42" rx="9" fill="#e0447c"/>
+              <rect x="222" y="40" width="10" height="30" rx="4" fill="#b32b5e"/>
+              <text x="130" y="63" font-family="'Baloo Bhaijaan 2',sans-serif" font-weight="800" font-size="22" fill="#fff">zeeka</text>
+              <use href="#flower" x="198" y="45" width="18" height="18" style="color:#fff"/>
+            </g>
+            <g transform="rotate(-8 172 92)"><rect x="140" y="80" width="66" height="22" rx="6" fill="#e0447c"/><text x="148" y="95" font-family="Rubik,sans-serif" font-weight="700" font-size="11" fill="#fff">Drive Thru</text></g>
+            <rect x="66" y="108" width="176" height="196" rx="12" fill="#4cc4cf"/>
+            <path d="M66 268h176v24a12 12 0 0 1-12 12H78a12 12 0 0 1-12-12z" fill="#e0447c"/>
+            <text x="88" y="182" font-family="'Baloo Bhaijaan 2',sans-serif" font-weight="800" font-size="27" fill="#fff">zeeka</text>
+            <use href="#flower" x="168" y="162" width="20" height="20" style="color:#c22a5c"/>
+            <text x="232" y="184" text-anchor="end" font-family="'Baloo Bhaijaan 2',sans-serif" font-weight="800" font-size="27" fill="#fff">زيكا</text>
+            <use href="#flower" x="196" y="164" width="18" height="18" style="color:#c22a5c"/>
+            <rect x="90" y="196" width="80" height="10" fill="#37aeb9"/>
+            <rect x="90" y="206" width="80" height="66" fill="#17181c"/>
+            <g stroke="#2a2b31" stroke-width="3"><line x1="90" y1="216" x2="170" y2="216"/><line x1="90" y1="226" x2="170" y2="226"/></g>
+            <rect x="104" y="238" width="52" height="34" fill="#23242a"/>
+            <rect x="182" y="210" width="36" height="46" fill="#e88fa8"/>
+            <g fill="#fff"><rect x="186" y="216" width="12" height="10"/><rect x="202" y="216" width="12" height="10"/><rect x="186" y="232" width="28" height="6"/></g>
+            <rect x="242" y="206" width="16" height="98" fill="#d13b72"/>
+            <g stroke="#b32b5e" stroke-width="3"><line x1="242" y1="218" x2="258" y2="218"/><line x1="242" y1="234" x2="258" y2="234"/><line x1="242" y1="250" x2="258" y2="250"/><line x1="242" y1="266" x2="258" y2="266"/><line x1="242" y1="282" x2="258" y2="282"/></g>
+            <rect y="330" width="300" height="70" fill="#cfc6b6"/>
+            <g stroke="#bdb29e" stroke-width="2"><line x1="0" y1="352" x2="300" y2="352"/><line x1="0" y1="374" x2="300" y2="374"/></g>
+            <rect x="40" y="304" width="220" height="8" fill="#e6ddcb"/>
+          </svg>
+        </div>
+        <figcaption>📍مكة - فرع حي الفيحاء</figcaption>
+      </figure>
+
+      <figure class="postcard" style="--r:-1.5deg" data-reveal>
+        <div class="art">
+          <img class="real" data-key="p3" src="images/zeeka-3.jpg" alt="برج زيكا التركواز — فرع الغمير طريق الهدا الطائف" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'">
+          <svg viewBox="0 0 300 400" aria-hidden="true">
+            <rect width="300" height="400" fill="#cfe0ef"/>
+            <rect x="272" width="28" height="400" fill="#e5d7b8"/>
+            <g stroke="#d4c49c" stroke-width="2"><line x1="272" y1="60" x2="300" y2="60"/><line x1="272" y1="140" x2="300" y2="140"/><line x1="272" y1="220" x2="300" y2="220"/></g>
+            <polygon points="14,98 286,34 286,98" fill="#4fc6d0"/>
+            <polygon points="14,98 286,34 286,44 20,102" fill="#37aeb9"/>
+            <rect x="14" y="98" width="272" height="210" fill="#63d3da"/>
+            <polygon points="14,98 286,98 286,140 14,220" fill="rgba(255,255,255,.14)"/>
+            <text x="52" y="172" font-family="'Baloo Bhaijaan 2',sans-serif" font-weight="800" font-size="46" fill="#fff">zeeka</text>
+            <use href="#flower" x="212" y="136" width="36" height="36" style="color:#c22a5c"/>
+            <g fill="#f4f1ea"><circle cx="26" cy="196" r="4"/><circle cx="262" cy="196" r="4"/></g>
+            <rect x="14" y="308" width="272" height="40" fill="#e0447c"/>
+            <rect x="108" y="246" width="76" height="102" fill="#8a2f52"/>
+            <rect x="118" y="252" width="26" height="96" fill="#2e8f99"/>
+            <ellipse cx="52" cy="272" rx="17" ry="36" fill="#8fdbe2" stroke="#cfd6da" stroke-width="6"/>
+            <rect x="176" y="240" width="98" height="66" fill="#f3e3e0"/>
+            <rect x="183" y="247" width="84" height="52" fill="#3a3f4a"/>
+            <g stroke="#f3e3e0" stroke-width="4"><line x1="211" y1="247" x2="211" y2="299"/><line x1="239" y1="247" x2="239" y2="299"/></g>
+            <rect x="170" y="306" width="110" height="6" fill="#f7f0ee"/>
+            <rect y="348" width="300" height="13" fill="#e0447c"/>
+            <rect y="361" width="300" height="13" fill="#d13b72"/>
+            <rect y="374" width="300" height="13" fill="#c23368"/>
+            <rect y="387" width="300" height="13" fill="#b32b5e"/>
+            <polygon points="228,348 300,348 300,400 246,400" fill="#e05c86"/>
+            <g stroke="#c23368" stroke-width="3"><line x1="252" y1="362" x2="296" y2="362"/><line x1="258" y1="378" x2="298" y2="378"/></g>
+          </svg>
+        </div>
+        <figcaption>📍الطائف، طريق الهدا - فرع الغمير</figcaption>
+      </figure>
+
+      <figure class="postcard" style="--r:2.5deg" data-reveal>
+        <div class="art">
+          <img class="real" data-key="p4" src="images/zeeka-4.jpg" alt="فرع زيكا بالمول — طريق المطار الطائف" loading="lazy" onload="this.classList.add('ok')" onerror="this.dataset.fail='1'">
+          <svg viewBox="0 0 300 400" aria-hidden="true">
+            <rect width="300" height="400" fill="#171226"/>
+            <g fill="#2a2140"><rect x="0" y="120" width="26" height="280"/><rect x="274" y="90" width="26" height="310"/></g>
+            <g fill="#ff9d2e" opacity=".7"><rect x="4" y="180" width="14" height="10"/><rect x="4" y="210" width="14" height="10"/></g>
+            <g fill="#7ee08a" opacity=".6"><rect x="280" y="160" width="14" height="10"/><rect x="280" y="190" width="14" height="10"/></g>
+            <g fill="#ffd98a"><circle cx="60" cy="26" r="6"/><circle cx="250" cy="20" r="6"/></g>
+            <g stroke="#3a3352" stroke-width="4"><line x1="60" y1="32" x2="70" y2="52"/><line x1="250" y1="26" x2="240" y2="50"/></g>
+            <rect x="30" y="40" width="240" height="120" rx="8" fill="#59cdd6"/>
+            <text x="52" y="118" font-family="'Baloo Bhaijaan 2',sans-serif" font-weight="800" font-size="52" fill="#f6e7d7">zeeka</text>
+            <use href="#flower" x="216" y="76" width="40" height="40" style="color:#f01868"/>
+            <rect x="30" y="160" width="240" height="26" fill="#37aeb9"/>
+            <g fill="#ffd98a"><circle cx="70" cy="196" r="4"/><circle cx="110" cy="196" r="4"/><circle cx="150" cy="196" r="4"/><circle cx="190" cy="196" r="4"/><circle cx="230" cy="196" r="4"/></g>
+            <rect x="30" y="186" width="240" height="120" fill="#4cc4cf"/>
+            <rect x="120" y="200" width="150" height="24" fill="#eef7f7"/>
+            <text x="132" y="217" font-family="Rubik,sans-serif" font-weight="700" font-size="12" fill="#1b2a86">PICK UP</text>
+            <text x="258" y="217" text-anchor="end" font-family="Rubik,sans-serif" font-weight="700" font-size="12" fill="#1b2a86">ORDER</text>
+            <rect x="120" y="224" width="150" height="66" fill="#fff"/>
+            <rect x="126" y="230" width="138" height="54" fill="#7a5a8a"/>
+            <g stroke="#9a7aaa" stroke-width="2"><line x1="126" y1="248" x2="264" y2="248"/><line x1="126" y1="266" x2="264" y2="266"/><line x1="172" y1="230" x2="172" y2="284"/><line x1="218" y1="230" x2="218" y2="284"/></g>
+            <rect x="140" y="262" width="60" height="22" fill="#3fb9c6"/>
+            <ellipse cx="76" cy="248" rx="24" ry="42" fill="#4cc4cf" stroke="#cfd6da" stroke-width="6"/>
+            <ellipse cx="76" cy="248" rx="30" ry="48" fill="none" stroke="#ff5c93" stroke-width="3" opacity=".7"/>
+            <rect x="30" y="306" width="240" height="58" fill="#e0447c"/>
+            <rect x="20" y="364" width="260" height="12" fill="#b9b3a6"/>
+            <rect x="10" y="376" width="280" height="12" fill="#a29c8e"/>
+            <rect x="0" y="388" width="300" height="12" fill="#8f897b"/>
+          </svg>
+        </div>
+        <figcaption>📍الطائف - فرع طريق المطار</figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- الفروع -->
+<section class="branches" id="branches">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><h2>فروعنا</h2></div>
+    <p class="sec-sub" data-reveal style="--d:.1s">دوّر على حيّك بالبحث أو تنقّل بين المدن… وضغطة واحدة توصلك الخريطة.</p>
+    <div class="stats" data-reveal style="--d:.15s">
+      <div class="stat"><b>27</b><span>فرع</span></div>
+      <div class="stat"><b>2</b><span>مدينة</span></div>
+      <div class="stat"><b>24</b><span>ساعة يومياً</span></div>
+    </div>
+    <div class="branch-tools" data-reveal style="--d:.2s">
+      <div class="tabs">
+        <button class="tab active" data-city="makkah">مكة المكرمة <b>22</b></button>
+        <button class="tab" data-city="taif">الطائف <b>5</b></button>
+      </div>
+      <label class="b-search"><span class="fl"><svg><use href="#flower"/></svg></span><input id="branchSearch" type="search" placeholder="دوّر على حيّك… مثال: العوالي"></label>
+    </div>
+    <div class="branch-grid" id="branchGrid"></div>
+    <div class="hours" data-reveal>
+      <span class="big-t">🕘فاتحين 24 ساعة يوميا<b></b> <span class="fl"><svg><use href="#flower"/></svg></span></span>
+      <p class="sub">زيكا أقرب لكم، بجودة تثقون فيها وسعر تحبونه. نوصلكم في مكة والطائف على مدار الساعة.
+    <div class="g-wrap" data-reveal style="--d:.15s">
+      <div class="g-badge"><b>4.8</b><span class="g-stars">★★★★★</span><span>من تقييمات عملائنا على قوقل ماب</span></div>
+      <div class="g-reviews">
+        <div class="g-card"><span class="g-stars">★★★★★</span><p>"سلاش الردبول والكودرد جامد"
+</p><div class="g-who"><span class="g-ava">ع</span><span class="g-name">عبداللّه محمد</span></div></div>
+        <div class="g-card"><span class="g-stars">★★★★★</span><p>"الفرنش توست بالكيندر يستاهل المشوار لوحده 😍 خدمة سريعة ونظافة"</p><div class="g-who"><span class="g-ava">أ</span><span class="g-name">أحمد الشريف</span></div></div>
+        <div class="g-card"><span class="g-stars">★★★★★</span><p>"عجزت اتكلم وعجزت اعبر ما شاء الله كل شي عندكم رهيب وكلشي فوق التقييم وبالذات البودينق اعشققهه 🥺🩷"</p><div class="g-who"><span class="g-ava">م</span><span class="g-name">مشاعل عبداللّه</span></div></div>
+      </div>
+      <a class="g-link" href="https://www.google.com/maps/place/%D8%B2%D9%8A%D9%83%D8%A7+%D9%83%D8%A7%D9%81%D9%8A%D9%87+ZEEKA+CAFE%E2%80%AD/@21.4500563,39.8386537,13z/data=!4m12!1m2!2m1!1z2LLZitmD2Kcg2YPYp9mB2YrZhw!3m8!1s0x15c21b7758d47147:0x7a69c2ce98125e12!8m2!3d21.4289566!4d39.786366!9m1!1b1!15sChPYstmK2YPYpyDZg9in2YHZitmHWhUiE9iy2YrZg9inINmD2KfZgdmK2YeSAQtjb2ZmZWVfc2hvcJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQycEdhRk15ZEVabGJsWmFWR3RuZUZwVlNYbFRSWEJQWkRKNGQwNXVZeEFC4AEA-gEECAAQPQ!16s%2Fg%2F11yzn4bv9c?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">اقرأ كل التقييمات على قوقل ↗</a>
+    </div></p>
+    </div>
+  </div>
+</section>
+
+<!-- تطبيقات التوصيل -->
+<section class="delivery" id="delivery">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><span class="fl"><svg><use href="#flower"/></svg></span><h2>كبسة زر… وكوبك عندك </h2></div>
+    <p class="sec-sub" data-reveal style="--d:.1s">من أقرب فرع لباب دارك… الثلج يوصلك قبل ما يذوب ❄️</p>
+    <div class="del-grid">
+      <a class="del-card" style="--r:-1.5deg" data-reveal href="https://hungerstation.go.link/?c=SA&s=c&v=43470&so=mls&adj_t=1sdhhuza_1spi9ypp&adj_og_title=%D8%B2%D9%8A%D9%83%D8%A7&adj_og_image=https://images.deliveryhero.io/image/hungerstation/restaurant/logo_ar/7f2e9701be44877e82d0d0ea6cf4cb08.JPG" target="_blank" rel="noopener">
+        <img class="del-logo" src="images/hungerstation.png" alt="هنقرستيشن" onerror="this.onerror=function(){this.outerHTML='🛵'};this.src='images/hungerstation.jpg'">
+        <h3>هنقرستيشن</h3>
+        <p>المنيو كامل عندك بالتطبيق — اطلب ويوصلك لباب البيت</p>
+        <span class="del-btn">افتح التطبيق</span>
+      </a>
+      <a class="del-card kt" style="--r:1.5deg;--d:.12s" data-reveal href="https://url.mykeeta.com/XsNkvc0z" target="_blank" rel="noopener">
+      <img class="del-logo" src="images/keeta.png" alt="كيتا" onerror="this.onerror=function(){this.outerHTML='⚡'};this.src='images/keeta.jpg'">
+        <h3>كيتا</h3>
+        <p>خلّ البرد يجيك وين ما كنت — اطلب زيكا من كيتا</p>
+        <span class="del-btn">افتح التطبيق</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="big" data-reveal>zeeka <span class="fl"><svg><use href="#flower"/></svg></span></p>
+    <p class="bio" data-reveal style="--d:.1s">زيكا أقرب لكم، بجودة تثقون فيها وسعر تحبونه — في خدمتكم يومياً 24 ساعة.</p>
+    <div class="socials" data-reveal style="--d:.15s">
+      <a href="https://www.instagram.com/zeeka_sa" target="_blank" rel="noopener">انستقرام @zeeka_sa</a>
+      <a href="https://www.tiktok.com/@zeeka_sa" target="_blank" rel="noopener">تيك توك @zeeka_sa</a>
+    </div>
+    <div class="fine" style="text-align:center">
+      <div style="text-align:center !important; width:100% !important; display:block !important; margin:0 auto !important; padding:20px 0 !important;">© 2026 كافيه زيكا – مكة المكرمة • الطائف</div>
+      <span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ========== الصور مدمجة base64 (اختياري) ========== */
+const PHOTOS={
+  p1:"",p2:"",p3:"",p4:"",
+  o1:"",o2:""
+};
+document.querySelectorAll('img.real').forEach(img=>{
+  const k=img.dataset.key;
+  if(PHOTOS[k]){ img.src=PHOTOS[k]; }
+});
+
+/* ========== يجرّب كل امتدادات الصورة تلقائياً ========== */
+document.querySelectorAll('img.real').forEach(img=>{
+  const k=img.dataset.key;
+  if(PHOTOS[k]||img.classList.contains('ok')) return;
+  const base=(img.getAttribute('src')||'').replace(/\.[^./]+$/,'');
+  if(!base) return;
+  const cands=[base+'.jpg',base+'.jpeg',base+'.png',base+'.jpg.jpg',base+'.JPG',base+'.JPEG',base+'.webp'];
+  let i=0;
+  (function next(){
+    if(i>=cands.length){ img.remove(); return; }
+    const t=new Image();
+    t.onload=()=>{ img.src=cands[i]; img.classList.add('ok'); };
+    t.onerror=()=>{ i++; next(); };
+    t.src=cands[i];
+  })();
+});
+
+/* ========== بيانات الفروع ========== */
+const BRANCHES=[
+ {c:'makkah',n:'حي العدل',m:'https://maps.app.goo.gl/dmeFQspKmBeFd6b86?g_st=ac'},
+ {c:'makkah',n:'حي الستين',m:'https://maps.app.goo.gl/oWGQadV5i2x3g3WE7?g_st=ac'},
+ {c:'makkah',n:'حي العوالي 1',m:'https://maps.app.goo.gl/WCBm9K9QNyEGqLzh7?g_st=ac'},
+ {c:'makkah',n:'حي العوالي 2',m:'https://maps.app.goo.gl/jvzLvLDw1YfgsMGMA?g_st=ac'},
+ {c:'makkah',n:'حي العوالي 3',m:'https://maps.app.goo.gl/Df3LR4Qy9neF1FG7A'},
+ {c:'makkah',n:'حي الشوقية',m:'https://maps.app.goo.gl/bcCUA6RutSa5D8jo8?g_st=ac'},
+ {c:'makkah',n:'حي الكعكية',m:'https://maps.app.goo.gl/XoCpU9h2a3CdV8DL9'},
+ {c:'makkah',n:'حي ولي العهد 6',m:'https://maps.app.goo.gl/K6sADTiZQaqit7AQ7?g_st=ac'},
+ {c:'makkah',n:'حي الراشدية',m:'https://maps.app.goo.gl/utEYJrzZ42vKjVFcA?g_st=ac'},
+ {c:'makkah',n:'حي المعيصم',m:'https://maps.app.goo.gl/cagPQ6RU8oXBiFqv5?g_st=ac'},
+ {c:'makkah',n:'حي الزاهر',m:'https://maps.app.goo.gl/V97phDWxfMLiND92A'},
+ {c:'makkah',n:'حي الفيحاء',m:'https://maps.app.goo.gl/UUuvHcLQJi2b3Enh9?g_st=ac'},
+ {c:'makkah',n:'حي النوارية 1',m:'https://maps.app.goo.gl/BTBgjzUZNsaV6D6BA?g_st=ac'},
+ {c:'makkah',n:'حي النوارية 2',m:'https://maps.app.goo.gl/kkKScL7Lh1ai2DHc7'},
+ {c:'makkah',n:'حي التنعيم',m:'https://maps.app.goo.gl/N5S2qYinKg6km8wq6'},
+ {c:'makkah',n:'حي الزايدي',m:'https://maps.app.goo.gl/D7ZwQ9HXxDLoe3rw9'},
+ {c:'makkah',n:'حي الشرائع 1',m:'https://maps.app.goo.gl/zSFgjhwZfQvURDeo8'},
+ {c:'makkah',n:'حي الشرائع 2',m:'https://maps.app.goo.gl/aWVxh1Jehqkc9WCC9'},
+ {c:'makkah',n:'حي ولي العهد 1',m:'https://maps.app.goo.gl/SDbhSFmHyMLi94ry6'},
+ {c:'makkah',n:'حي الرصيفة',m:'https://maps.app.goo.gl/DzwaeyDbxS4qDYeS8?g_st=ac'},
+ {c:'makkah',n:'حي السبهاني',m:'https://maps.app.goo.gl/37RT8M8eJmtq6S5f6'},
+ {c:'makkah',n:'حي بطحاء قريش',m:'https://maps.app.goo.gl/hfMreMJbXXUbdGbR9'},
+ {c:'taif',n:'الخالدية',m:'https://maps.app.goo.gl/GhWWHWrN5AkAADtq6?g_st=ac'},
+ {c:'taif',n:'الغمير - طريق الهدا',m:'https://maps.app.goo.gl/4cVYQn4JxtFnBP2s5?g_st=ac'},
+ {c:'taif',n:'حي شهار',m:'https://maps.app.goo.gl/EXqSCmMFtYyy3mZc7?g_st=ac'},
+ {c:'taif',n:'طريق المطار - محطة السواط',m:'https://maps.app.goo.gl/anq1YHeacgsDTbfm6?g_st=ac'},
+ {c:'taif',n:'حي الحوية',m:'https://maps.app.goo.gl/YDn2uZmQzFj6j64d7'}
+];
+const grid=document.getElementById('branchGrid');
+const tabs=document.querySelectorAll('.tab');
+const search=document.getElementById('branchSearch');
+let city='makkah';
+function render(){
+  const q=(search.value||'').trim();
+  const list=BRANCHES.filter(b=>b.c===city&&(!q||b.n.includes(q)));
+  grid.innerHTML=list.length
+    ? list.map((b,i)=>`<article class="b-card" style="--d:${Math.min(i*.04,.5)}s"><span class="b-num">${String(i+1).padStart(2,'0')}</span><h4>${b.n}</h4><span class="b-tag">مفتوح 24 ساعة</span><a class="b-link" href="${b.m}" target="_blank" rel="noopener">📍 الموقع على الخريطة</a></article>`).join('')
+    : `<p class="empty">ما لقينا حي بهذا الاسم 😅 جرّب اسم ثاني</p>`;
+  requestAnimationFrame(()=>grid.querySelectorAll('.b-card').forEach(el=>el.classList.add('is-in')));
+}
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');city=t.dataset.city;render();}));
+search.addEventListener('input',render);
+render();
+
+const head=document.getElementById('siteHead');
+addEventListener('scroll',()=>head.classList.toggle('scrolled',scrollY>40),{passive:true});
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const els=document.querySelectorAll('[data-reveal]');
+if(reduced||!('IntersectionObserver' in window)){els.forEach(el=>el.classList.add('is-in'));}
+else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}}),{threshold:.15});els.forEach(el=>io.observe(el));}
+
+/* أزرار # تمرّر داخل الصفحة */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const id=a.getAttribute('href').slice(1);
+    const t=id?document.getElementById(id):null;
+    const beh=reduced?'auto':'smooth';
+    if(t){t.scrollIntoView({behavior:beh});}else{window.scrollTo({top:0,behavior:beh});}
+  });
+});
+</script>
+</body>
+</html>
